@@ -1,0 +1,5 @@
+# Dependencies
+/node_modules
+
+# Enviromental variables
+/nodemon.json
