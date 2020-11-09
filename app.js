@@ -2,18 +2,27 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 // Configs 
 const app = express();
 
-// Routes
-const spreedSheetRoutes = require("./src/routes/spreedSheets");
+// Terminal logs
+app.use(morgan("dev"));
+
+// connect to mongo DB 
+const mongoUrl = "mongodb+srv://" + process.env.MONGO_ATLAS_USERNAME + ":" + process.env.MONGO_ATLAS_PW + "@financial-tracker.bqxbb.mongodb.net/" + process.env.MONGO_ATLAS_NAME + "?retryWrites=true&w=majority";
+mongoose.connect(mongoUrl, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+})
+mongoose.Promise = global.Promise;
+
+// Import routes
+const transactionsRoutes = require("./src/routes/transactions");
 
 // Middlewares
 const MiddleWares = require("./src/middlewares/errorHandler");
-
-// Terminal logs
-app.use(morgan("dev"));
 
 // Parse body from incomming request
 app.use(bodyParser.urlencoded({
@@ -34,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/dashboard", spreedSheetRoutes);
+app.use("/transactions", transactionsRoutes)
 
 // Error handlers
 app.use(MiddleWares.errorHandler);
