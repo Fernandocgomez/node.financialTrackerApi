@@ -20,6 +20,7 @@ mongoose.Promise = global.Promise;
 
 // Import routes
 const transactionsRoutes = require("./src/routes/transactions");
+const usersRoutes = require("./src/routes/users");
 
 // Middlewares
 const MiddleWares = require("./src/middlewares/errorHandler");
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/transactions", transactionsRoutes)
+app.use("/users", usersRoutes)
 
 // Error handlers
 app.use(MiddleWares.errorHandler);
