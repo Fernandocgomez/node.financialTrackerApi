@@ -1,6 +1,16 @@
+// Dependencies
+const mongoose = require("mongoose");
+const transaction = require("../models/transaction");
+
+// Modles 
+const Transaction = require("../models/transaction");
+
 exports.index = (req, res, next) => {
-    res.status(200).json({
-        message: "index"
+    Transaction.find()
+    .populate("name ammount date user")
+    .exec()
+    .then(transactions => {
+        res.status(200).json(transactions);
     })
 };
 
