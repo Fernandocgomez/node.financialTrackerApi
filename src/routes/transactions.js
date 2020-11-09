@@ -7,10 +7,13 @@ const transactionsController = require("../controllers/transactions");
 
 // Routes
 
-// index
-router.get("/", transactionsController.index);
-
-// create
+// create a new transaction 
 router.post("/", transactionsController.create);
+
+// Get all the transactions associated with a user
+
+// Get all the transactions associated with a user by category
+
+// Get the total ammount by category
 
 module.exports = router;
