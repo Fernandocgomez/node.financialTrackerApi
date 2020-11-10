@@ -21,6 +21,7 @@ mongoose.Promise = global.Promise;
 // Import routes
 const transactionsRoutes = require("./src/routes/transactions");
 const usersRoutes = require("./src/routes/users");
+const paycheckRoutes = require("./src/routes/paycheck");
 
 // Middlewares
 const MiddleWares = require("./src/middlewares/errorHandler");
@@ -44,8 +45,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/transactions", transactionsRoutes)
-app.use("/users", usersRoutes)
+app.use("/transactions", transactionsRoutes);
+app.use("/users", usersRoutes);
+app.use("/paycheck", paycheckRoutes);
 
 // Error handlers
 app.use(MiddleWares.errorHandler);
