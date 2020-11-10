@@ -1,6 +1,7 @@
 // Dependencies
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 // Model 
 const User = require("../models/user");
@@ -60,9 +61,17 @@ exports.login = (req, res, next) => {
                 });
             }
             if (result) {
+                const token = jwt.sign({
+                    email: user[0].email, 
+                    userId: user[0]._id
+                }, process.env.JWT_KEY, 
+                {
+                    expiresIn: "24h"
+                }
+                );
                 return res.status(200).json({
                     message: "Auth successful", 
-                    userId: user[0]._id || null
+                    token: token
                 });
             }
             res.status(401).json({
@@ -71,7 +80,6 @@ exports.login = (req, res, next) => {
         })
     })
     .catch((error) => {
-        console.log(error)
         res.status(500).json({
             error: error
         });

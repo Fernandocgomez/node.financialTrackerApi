@@ -10,6 +10,11 @@ const User = require("../models/user");
  * 
  * @apiDescription Get all transactions from the data base
  * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
+ * 
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *   {
@@ -62,6 +67,11 @@ exports.index = (req, res, next) => {
  * @api {post} /transactions
  * 
  * @apiDescription Create a new transaction
+ * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
  * 
  * @apiParamExample {json} Request-Example:
  * 
@@ -136,6 +146,11 @@ exports.create = (req, res, next) => {
  * 
  * @apiDescription Get all the transactions associated with a user
  * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
+ * 
  * @apiParamExample {json} Request-Example:
  * 
 {
@@ -209,6 +224,11 @@ exports.allTransactionsByUser = (req, res, next) => {
  * @api {get} /transactions/my-transactions-by-category
  * 
  * @apiDescription Get all the transactions associated with a user by category
+ * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
  * 
  * @apiParamExample {json} Request-Example:
  * 
@@ -301,6 +321,11 @@ exports.allUserTransactionsByCategory = (req, res, next) => {
  * 
  * @apiDescription Get total ammount by category
  * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
+ * 
  * @apiParamExample {json} Request-Example:
  * 
 {
@@ -381,6 +406,11 @@ exports.totalAmmountByCategory = (req, res, next) => {
  * 
  * @apiDescription Update transaction 
  * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
+ * 
  * @apiParamExample {json} Request-Example:
  * Params are optional
 {
@@ -424,6 +454,11 @@ exports.totalAmmountByCategory = (req, res, next) => {
  * @api {delete} /transactions/:id
  * 
  * @apiDescription Delete transaction
+ * 
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJ1c2VySWQiOiI1ZmE5NDZhYjJlZDIyMzhmOWI3NzM3YTIiLCJpYXQiOjE2MDQ5ODcwNTEsImV4cCI6MTYwNTA3MzQ1MX0.cv542egX7eHE4DDkROQwasU_impDuDW9mAbE_XcAuwI"
+ *     }
  * 
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
